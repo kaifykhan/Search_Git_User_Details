@@ -20,6 +20,20 @@ body {
   height: 80vh;
 }
 
+.card_a{
+  color: black !important;
+  text-decoration: none;
+}
+
+.card_a:hover{
+  background-color: white !important;
+  text-decoration: none;
+}
+
+.btn-outline-dark:hover{
+  background-color: white !important;
+}
+
 .rounded-edge{
   padding: 20px 20px;
 }
