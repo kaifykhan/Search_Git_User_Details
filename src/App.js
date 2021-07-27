@@ -12,34 +12,43 @@ import axios from "axios";
 
 function App() {
   const [data, setData] = useState(false);
-  const [input, setInputVal] = useState("");
-  const [pass, setPassword] = useState("");
+  const [input, setInput] = useState("");
+  const [password, setPassword] = useState("");
   const [flag, setFlag] = useState(false);
-  const [getdata, setGetData] = useState();
-  const [sdata, setsdata] = useState("");
+  const [searchinput, setSearchInput] = useState("");
   const [searchuser, setSearchUser] = useState(false);
-  const apiCall = async () => {
-    let response = await axios.get(`https://api.github.com/users/${data}`);
-    console.log(response.data);
-    setGetData(response.data);
+  const [calldata, setCalldata] = useState();
+
+  const callApi = async () => {
+    let response = await axios.get(
+      `https://api.github.com/users/${searchinput}`
+    );
+    if(response.status==200){
+      setCalldata(response.data)
+    }else{
+      console.log(`Data Not found`);
+    }
   };
+
   useEffect(() => {
-    apiCall();
-    setSearchUser(false);
-  }, []);
+    if (searchuser) {
+      callApi();
+      setSearchUser(false);
+    }
+  }, [searchuser]);
+
   return (
     <Router>
       <div className="App">
         <Header />
         <Switch>
           <PrivateRoute data={data} exact path="/">
-            <Home
-              sdata={sdata}
-              setsdata={setsdata}
+          <Home
+              searchinput={searchinput}
+              setSearchInput={setSearchInput}
               searchuser={searchuser}
               setSearchUser={setSearchUser}
-              getdata={getdata}
-              setGetData={setGetData}
+              calldata={calldata} setCalldata={setCalldata}
             />
           </PrivateRoute>
           <Route exact path="/About">
@@ -50,12 +59,13 @@ function App() {
           </Route>
           <Route exact path="/login">
             <Login
-              setInputVal={setInputVal}
+              input={input}
+              setInput={setInput}
+              password={password}
               setPassword={setPassword}
-              setFlag={setFlag}
               setData={setData}
               flag={flag}
-              data={data}
+              setFlag={setFlag}
             />
           </Route>
         </Switch>

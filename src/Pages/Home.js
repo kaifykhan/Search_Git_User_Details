@@ -6,27 +6,31 @@ import Gists from "../Components/Gists";
 import Repo from "../Components/Repo";
 import Search from "../Components/Search";
 
-const Home = ({ getdata, searchuser }) => {
+const Home = ({ calldata,searchinput,searchuser,setSearchInput,setSearchUser }) => {
   return (
     <div className="Home">
-      <Search getdata={getdata} searchuser={searchuser} />
+      <Search
+        setSearchUser={setSearchUser}
+        setSearchInput={setSearchInput}
+        calldata={calldata}
+      />
       <div className="container">
         <div className="row">
           <div className="col-sm-3">
-            <Repo getdata={getdata} />
+            <Repo calldata={calldata} />
           </div>
           <div className="col-sm-3">
-            <Followers getdata={getdata} />
+            <Followers calldata={calldata} />
           </div>
           <div className="col-sm-3">
-            <Following getdata={getdata} />
+            <Following calldata={calldata} />
           </div>
           <div className="col-sm-3">
-            <Gists getdata={getdata} />
+            <Gists calldata={calldata} />
           </div>
         </div>
       </div>
-      <Card />
+      <Card calldata={calldata}/>
     </div>
   );
 };

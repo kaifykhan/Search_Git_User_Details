@@ -1,6 +1,6 @@
 import React from "react";
 
-const Repo = ({getdata}) => {
+const Repo = ({calldata}) => {
   return (
     <div className="card mb-3 colorSetter">
       <div className="row no-gutters">
@@ -9,7 +9,7 @@ const Repo = ({getdata}) => {
         </div>
         <div className="col-md-8">
           <div className="card-body">
-            <h3 className="card-title">{getdata && getdata.public_repos}</h3>
+            <h3 className="card-title">{calldata && calldata.public_repos}</h3>
             <h6 className="card-title">Repo</h6>
           </div>
         </div>

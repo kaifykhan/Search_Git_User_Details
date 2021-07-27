@@ -1,6 +1,6 @@
 import React from "react";
 
-const Followers = ({getdata}) => {
+const Followers = ({calldata}) => {
   return (
     <div className="card mb-3 colorSetter">
       <div className="row no-gutters">
@@ -11,7 +11,7 @@ const Followers = ({getdata}) => {
         </div>
         <div className="col-md-8">
           <div className="card-body">
-            <h3 className="card-title">{getdata && getdata.followers}</h3>
+            <h3 className="card-title">{calldata && calldata.followers}</h3>
             <h6 className="card-title">Followers</h6>
           </div>
         </div>

@@ -1,12 +1,11 @@
 import React from "react";
-
-const Search = ({ setsdata, setSearchUser, sdata, searchuser, getdata }) => {
+const Search = ({setSearchUser,setSearchInput,searchuser,searchinput,calldata }) => {
   const handleChange = (e) => {
-    setsdata(e.target.value);
+    setSearchInput(e.target.value);
   };
   const handleClick = (e) => {
     e.preventDefault();
-    setSearchUser(true);
+    setSearchUser(true);  
   };
   return (
     <div className="container">
@@ -19,20 +18,13 @@ const Search = ({ setsdata, setSearchUser, sdata, searchuser, getdata }) => {
                   className="form-control form-control-lg form-control-borderless"
                   type="text"
                   placeholder="Search topics or keywords"
-                  setsdata={setsdata}
                   onChange={handleChange}
                 />
               </div>
               <div className="col-auto">
                 <button
                   className="btn btn-lg btn-dark"
-                  type="submit"
-                  setsdata={setsdata}
-                  setSearchUser={setSearchUser}
-                  sdata={sdata}
-                  searchuser={searchuser}
-                  onClick={handleClick}
-                >
+                  type="submit" onClick={handleClick} >
                   Search
                 </button>
               </div>

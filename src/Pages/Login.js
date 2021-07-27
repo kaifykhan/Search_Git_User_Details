@@ -4,13 +4,11 @@ import { useHistory } from "react-router-dom";
 
 const Login = ({
   setData,
-  setInputVal,
-  setPassword,
-  setFlag,
-  getdata,
+  setInput,
+  setFlag,setPassword,
 }) => {
   const handleChange = (e) => {
-    setInputVal(e.target.value);
+    setInput(e.target.value);
   };
   const handlePassword = (e) => {
     setPassword(e.target.value);
@@ -20,7 +18,6 @@ const Login = ({
     setFlag(true);
     setData(true);
     history.push("/");
-    setFlag(getdata);
   };
   return (
     <div>

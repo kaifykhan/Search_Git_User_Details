@@ -16,6 +16,23 @@ body {
     outset -10px -10px 15px -10px #ffffff;
 }
 
+.wd-manually{
+  width: fit-content;
+  height: auto;
+}
+
+.p0{
+  padding: 0px;
+}
+
+.m0{
+  margin: 0px;
+}
+
+.bio{
+  font-size: 12px;
+}
+
 .Home {
   height: 80vh;
 }
@@ -76,13 +93,6 @@ body {
   background-clip: border-box;
   border: 2px outset;
   border-radius: 0.25rem;
-}
-
-.footer {
-  position: fixed;
-  width: 100%;
-  bottom: 0px;
-  left: 0px;
 }
 
 .App-logo {
